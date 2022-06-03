@@ -14,4 +14,20 @@
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <p class="ion-padding">Angular Version: {{ ngVersion }}</p>
+
+  <div class="ion-padding">
+    <ion-button (click)="openModal()">Open Controller Modal</ion-button>
+    <ion-button id="modal-example">Open Inline Modal</ion-button>
+  </div>
+
+  <ion-modal trigger="modal-example" #inline>
+    <ng-template>
+      <ion-content>
+        Hello world!
+        <ion-button (click)="inline.dismiss()">Dismiss</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

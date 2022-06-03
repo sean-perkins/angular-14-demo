@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, VERSION } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  ngVersion = VERSION.full;
+
+  constructor(private modalCtrl: ModalController) { }
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ExploreContainerComponent
+    });
+    await modal.present();
+  }
 
 }
